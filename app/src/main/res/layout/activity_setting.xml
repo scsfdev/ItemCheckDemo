@@ -1,0 +1,154 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".SettingActivity">
+    <ImageView
+        android:id="@+id/imageView"
+        android:layout_width="120dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="5dp"
+        android:src="@drawable/dn_logo"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/tvTitle"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="10dp"
+        android:text="RFID Parts Tracker Demo"
+        android:textSize="15sp"
+        android:textStyle="bold"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/imageView" />
+
+    <TextView
+        android:id="@+id/tvVer"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="5dp"
+        android:text="Ver 1.0.0"
+        android:textSize="10sp"
+
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/tvTitle" />
+
+    <TextView
+        android:id="@+id/tvSp1LblRfidPower"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="30dp"
+        android:layout_marginTop="30dp"
+        android:text="SP1 RFID Power"
+        android:textStyle="bold"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/tvVer" />
+
+    <com.google.android.material.slider.Slider
+        android:id="@+id/sp1PowerLevel"
+        android:layout_width="300dp"
+        android:layout_height="wrap_content"
+        android:stepSize="5.0"
+        android:valueFrom="5.0"
+        android:valueTo="30.0"
+        app:labelBehavior="visible"
+        app:layout_constraintStart_toStartOf="@+id/tvSp1LblRfidPower"
+        app:layout_constraintTop_toBottomOf="@+id/tvSp1LblRfidPower"
+        app:thumbHeight="30dp"
+        app:thumbTrackGapSize="8dp"
+        app:thumbWidth="8dp"
+        app:trackHeight="12dp"
+        app:trackStopIndicatorSize="6dp" />
+
+    <TextView
+        android:id="@+id/tvSp1LblStatus"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="50dp"
+        android:text="SP1 Connection Status:"
+        android:textStyle="bold"
+        app:layout_constraintStart_toStartOf="@+id/tvSp1LblRfidPower"
+        app:layout_constraintTop_toBottomOf="@+id/sp1PowerLevel" />
+
+    <ImageView
+        android:id="@+id/imgSp1Status"
+        android:layout_width="50dp"
+        android:layout_height="50dp"
+        android:src="@drawable/sp1_off"
+        android:layout_marginStart="20dp"
+        app:layout_constraintBottom_toBottomOf="@+id/tvSp1LblStatus"
+        app:layout_constraintStart_toEndOf="@+id/tvSp1LblStatus"
+        app:layout_constraintTop_toTopOf="@+id/tvSp1LblStatus" />
+
+    <TextView
+        android:id="@+id/tvSp1LblDevicePower"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="SP1 Battery Power:"
+        android:layout_marginTop="50dp"
+        android:textStyle="bold"
+        app:layout_constraintStart_toStartOf="@+id/tvSp1LblRfidPower"
+        app:layout_constraintTop_toBottomOf="@+id/imgSp1Status" />
+
+    <TextView
+        android:id="@+id/tvSp1BattPower"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="10dp"
+        android:text="100%"
+        android:textColor="#6750A3"
+        android:textStyle="bold"
+        android:textSize="15sp"
+        app:layout_constraintBottom_toBottomOf="@+id/tvSp1LblDevicePower"
+        app:layout_constraintStart_toEndOf="@+id/tvSp1LblDevicePower"
+        app:layout_constraintTop_toTopOf="@+id/tvSp1LblDevicePower" />
+
+    <ImageView
+        android:id="@+id/imgScannerBatt"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="20dp"
+        app:layout_constraintBottom_toBottomOf="@+id/tvSp1LblDevicePower"
+        app:layout_constraintStart_toEndOf="@+id/tvSp1BattPower"
+        app:layout_constraintTop_toTopOf="@+id/tvSp1LblDevicePower"
+        app:srcCompat="@mipmap/battery_1" />
+
+    <com.google.android.material.textfield.TextInputLayout
+        android:id="@+id/tilAutoComplete"
+        style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+        android:layout_width="200dp"
+        android:layout_height="45dp"
+        android:hint="Data File"
+        android:enabled="false"
+        android:layout_marginTop="50dp"
+
+        app:layout_constraintStart_toStartOf="@+id/tvSp1LblDevicePower"
+        app:layout_constraintTop_toBottomOf="@+id/tvSp1LblDevicePower">
+
+        <AutoCompleteTextView
+            android:paddingStart="10dp"
+            android:textColor="#6750A3"
+            android:textSize="15dp"
+            android:text="data.csv"
+            android:id="@+id/filled_exposed"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            />
+    </com.google.android.material.textfield.TextInputLayout>
+
+    <Button
+        android:id="@+id/btnUpdateSetting"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="20dp"
+        android:text="Update Settings"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent" />
+</androidx.constraintlayout.widget.ConstraintLayout>
